@@ -1,6 +1,6 @@
 import { example } from "./GameState.example";
 import { GameState } from "./GameState";
-import { Server } from "ws";
+import { Server, OPEN as WebSocketOpen } from "ws";
 
 const wss = new Server({ port: 8081 });
 
@@ -22,8 +22,8 @@ class GameServer {
 
   public pushState(state: GameState): void {
     for (const client of this.socket.clients) {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(state);
+      if (client.readyState === WebSocketOpen) {
+        client.send(JSON.stringify(state));
       }
     }
   }
