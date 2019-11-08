@@ -7,7 +7,7 @@ export const exampleInit: GameInitEvent = {
     "Jose": "00ffee",
   },
   config: {
-    width: 100,
-    height: 50,
+    width: 60,
+    height: 30,
   }
 };

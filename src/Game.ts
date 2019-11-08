@@ -11,7 +11,7 @@ export class Game {
     }
 
     private getGrid(): Cell[][] {
-        return [this.height, this.width].map(e => Array(e).fill(null));
+        return new Array(this.height).fill([]).map(() => new Array(this.width).fill(null));
     }
     public reset(): void {
         this.grid = this.getGrid();

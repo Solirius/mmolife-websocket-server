@@ -48,6 +48,6 @@ setInterval(() => {
 setInterval(() => {
     game.reset();
     gameServer.pushState(exampleInit);
-}, 90000);
+}, 9000);
 
 setInterval(() => console.log("Clients connected: " + wss.clients.size), 1000);
