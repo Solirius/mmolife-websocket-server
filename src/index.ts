@@ -13,9 +13,7 @@ wss.on("connection", ws => {
   // todo client asked to create a cell, send that somewhere
   ws.on("message", message => {
       const coOrd = JSON.parse(message as string);
-      if (!game.gameState()) {
-          game.alterGrid(coOrd[0], coOrd[1]);
-      }
+      game.alterGrid(coOrd[0], coOrd[1]);
   });
 
 });
