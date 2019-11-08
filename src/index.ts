@@ -13,7 +13,9 @@ wss.on("connection", ws => {
   // todo client asked to create a cell, send that somewhere
   ws.on("message", message => {
       const coOrd = JSON.parse(message as string);
-      game.alterGrid(coOrd[0], coOrd[1]);
+      if (!game.gameState()) {
+          game.alterGrid(coOrd[0], coOrd[1]);
+      }
   });
 
 });
@@ -47,6 +49,7 @@ setInterval(() => {
 
 setInterval(() => {
     game.reset();
+
     gameServer.pushState(exampleInit);
 }, 9000);
 

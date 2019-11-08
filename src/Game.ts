@@ -3,6 +3,7 @@ import { Rules } from "./Rules";
 
 export class Game {
     private grid: Cell[][];
+    private activeGame;
 
     constructor(
         private readonly height: number,
@@ -13,8 +14,16 @@ export class Game {
     private getGrid(): Cell[][] {
         return new Array(this.height).fill([]).map(() => new Array(this.width).fill(null));
     }
+
     public reset(): void {
         this.grid = this.getGrid();
+        // this.activeGame = false;
+        //
+        // this.activeGame = true;
+    }
+
+    public gameState() {
+        return this.activeGame;
     }
 
     public alterGrid(height: number, width: number): void {
